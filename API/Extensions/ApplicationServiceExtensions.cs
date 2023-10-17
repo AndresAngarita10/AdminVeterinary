@@ -2,10 +2,13 @@ using System.Text;
 using API.Helpers;
 using API.Services;
 using Application.UnitOfWork;
+using AspNetCoreRateLimit;
 using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.IdentityModel.Tokens;
 namespace API.Extensions;
 
@@ -27,6 +30,39 @@ public static class ApplicationServiceExtensions
         services.AddScoped<IUserServices, UserServices>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
     }
+    
+    public static void ConfigureApiVersioning(this IServiceCollection services)
+        {
+            services.AddApiVersioning(options =>
+            {
+                options.DefaultApiVersion = new ApiVersion(1, 0);
+                options.AssumeDefaultVersionWhenUnspecified = true;
+                options.ApiVersionReader = new QueryStringApiVersionReader("ver");
+            });
+        }
+    
+     public static void ConfigureRateLimiting(this IServiceCollection services)
+        {
+            services.AddMemoryCache();
+            services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>();
+            services.AddInMemoryRateLimiting();
+            services.Configure<IpRateLimitOptions>(options =>
+            {
+                options.EnableEndpointRateLimiting = true;
+                options.StackBlockedRequests = true;
+                options.HttpStatusCode =429;
+                options.RealIpHeader = "X-real-ip";
+                options.GeneralRules = new List<RateLimitRule>
+                {
+                    new RateLimitRule
+                    {
+                        Endpoint = "*",
+                        Period = "10s",
+                        Limit = 2
+                    }
+                };
+            });
+        }
 
     public static void AddJwt(this IServiceCollection services, IConfiguration configuration)
     {

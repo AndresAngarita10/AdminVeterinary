@@ -11,7 +11,7 @@ using Persistence;
 namespace Persistence.Data.Migrations
 {
     [DbContext(typeof(ApiContext))]
-    [Migration("20231017064121_InitialCreate")]
+    [Migration("20231017165357_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -435,7 +435,7 @@ namespace Persistence.Data.Migrations
                     b.ToTable("rol", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Entities.Specialty", b =>
+            modelBuilder.Entity("Domain.Entities.Speciality", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -449,7 +449,7 @@ namespace Persistence.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("specialty", (string)null);
+                    b.ToTable("speciality", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Specie", b =>
@@ -648,7 +648,7 @@ namespace Persistence.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Specialty", "Specialty")
+                    b.HasOne("Domain.Entities.Speciality", "Specialty")
                         .WithMany("Partners")
                         .HasForeignKey("SpecialtyIdFk")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -813,7 +813,7 @@ namespace Persistence.Data.Migrations
                     b.Navigation("UsersRoles");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Specialty", b =>
+            modelBuilder.Entity("Domain.Entities.Speciality", b =>
                 {
                     b.Navigation("Partners");
                 });

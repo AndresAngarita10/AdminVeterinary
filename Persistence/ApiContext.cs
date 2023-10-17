@@ -25,7 +25,7 @@ public class ApiContext : DbContext
     public DbSet<Pet> Pets { get; set; }
     public DbSet<Quote> Quotes { get; set; }
     public DbSet<Rol> Roles { get; set; }
-    public DbSet<Specialty> Specialties { get; set; }
+    public DbSet<Speciality> Specialities { get; set; }
     public DbSet<Specie> Species { get; set; }
     public DbSet<TypeMovement> TypeMovements { get; set; }
     public DbSet<User> Users { get; set; }

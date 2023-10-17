@@ -1,3 +1,4 @@
+using System.Reflection;
 using API.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
@@ -19,14 +20,18 @@ builder.Services.AddDbContext<ApiContext>(options =>
 
 });
 //Fin Inyeccion del ApiContext
-//----------------------------------------------------------------
-//inyeccion de demas dependencias 
+//-----------------------------------------------------------------------------
+//inyeccion de demas dependencias --------------------------------
 
 builder.Services.ConfigureCors();
 builder.Services.AddAplicacionServices();
 builder.Services.AddJwt(builder.Configuration);
+builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
+builder.Services.ConfigureRateLimiting();
+builder.Services.ConfigureApiVersioning();
 
-//fin
+
+//fin -------------------------------------
 //------------------------------
 
 var app = builder.Build();

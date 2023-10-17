@@ -95,7 +95,7 @@ namespace Persistence.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "specialty",
+                name: "speciality",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -105,7 +105,7 @@ namespace Persistence.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_specialty", x => x.Id);
+                    table.PrimaryKey("PK_speciality", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -227,9 +227,9 @@ namespace Persistence.Data.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_partner_specialty_SpecialtyIdFk",
+                        name: "FK_partner_speciality_SpecialtyIdFk",
                         column: x => x.SpecialtyIdFk,
-                        principalTable: "specialty",
+                        principalTable: "speciality",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -647,7 +647,7 @@ namespace Persistence.Data.Migrations
                 name: "partnerType");
 
             migrationBuilder.DropTable(
-                name: "specialty");
+                name: "speciality");
         }
     }
 }

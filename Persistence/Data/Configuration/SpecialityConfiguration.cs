@@ -5,12 +5,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Persistence.Data.Configuration;
 
-public class SpecialtyConfiguration : IEntityTypeConfiguration<Specialty>
+public class SpecialityConfiguration : IEntityTypeConfiguration<Speciality>
 {
-    public void Configure(EntityTypeBuilder<Specialty> builder)
+    public void Configure(EntityTypeBuilder<Speciality> builder)
     {
 
-        builder.ToTable("specialty");
+        builder.ToTable("speciality");
         builder.HasKey(p => p.Id);
         
         builder.Property(p => p.Id)

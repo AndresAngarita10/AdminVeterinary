@@ -8,7 +8,7 @@ public class Partner : BaseEntity
     public string Phone { get; set; }
     public string Address { get; set; }
     public int SpecialtyIdFk { get; set; }
-    public Specialty Specialty { get; set; }
+    public Speciality Specialty { get; set; }
     public int GenderIdFk { get; set; }
     public Gender Gender { get; set; }
     public int PartnerTypeIdFk { get; set; }

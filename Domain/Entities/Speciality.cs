@@ -1,7 +1,7 @@
 
 namespace Domain.Entities;
 
-public class Specialty : BaseEntity
+public class Speciality : BaseEntity
 {
     public string Name { get; set; }
     public ICollection<Partner> Partners { get; set; }
