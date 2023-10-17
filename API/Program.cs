@@ -1,3 +1,4 @@
+using API.Extensions;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
@@ -11,14 +12,22 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Inyectando el ApiContext
-builder.Services.AddDbContext<ApiContext>(options => 
+builder.Services.AddDbContext<ApiContext>(options =>
 {
     string connectionString = builder.Configuration.GetConnectionString("ConexMysql");
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 
 });
 //Fin Inyeccion del ApiContext
+//----------------------------------------------------------------
+//inyeccion de demas dependencias 
 
+builder.Services.ConfigureCors();
+builder.Services.AddAplicacionServices();
+builder.Services.AddJwt(builder.Configuration);
+
+//fin
+//------------------------------
 
 var app = builder.Build();
 
@@ -29,6 +38,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("CorsPolicy"); //configurando politica
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
