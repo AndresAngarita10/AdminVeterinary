@@ -42,6 +42,27 @@ public class PartnerController : ApiBaseController
         return Ok(new Pager<PartnerDto>(listEntidad, Partner.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
 
     }
+    
+    [HttpGet("consulta1")]
+    [ApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> VeterinarioCirujanoVascular()
+    {
+        var Partner = await unitofwork.Partners.VeterinarioCirujanoVascular();
+        return mapper.Map<List<object>>(Partner);
+    }
+    [HttpGet("consulta1")]
+    [MapToApiVersion("1.1")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<PartnerDto>>> VeterinarioCirujanoVascular([FromQuery] Params Parameters)
+    {
+        var Partner = await unitofwork.Partners.VeterinarioCirujanoVascular(Parameters.PageIndex, Parameters.PageSize, Parameters.Search);
+        var listEntidad = mapper.Map<List<PartnerDto>>(Partner.registros);
+        return Ok(new Pager<PartnerDto>(listEntidad, Partner.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
+
+    }
 
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
