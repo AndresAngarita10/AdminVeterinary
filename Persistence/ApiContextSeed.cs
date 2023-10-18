@@ -279,6 +279,102 @@ public class ApiContextSeed
                     }
                 }
             }
+            if (!context.Quotes.Any())
+            {
+                /* Console.WriteLine("ruta:"+ruta); */
+                using (var readerQuote = new StreamReader("../Persistence/Data/Csvs/Quote.csv"))
+                {
+                    /* using (var csv = new CsvReader(readerQuote, CultureInfo.InvariantCulture)) */
+                    using (var csv = new CsvReader(readerQuote, new CsvConfiguration(CultureInfo.InvariantCulture)
+                    {
+                        HeaderValidated = null, // Esto deshabilita la validación de encabezados
+                        MissingFieldFound = null
+                    }))
+                    {
+                        var list = csv.GetRecords<Quote>();
+
+                        List<Quote> entidad = new List<Quote>();
+                        foreach (var item in list)
+                        {
+                            entidad.Add(new Quote
+                            {
+                                Id = item.Id,
+                                Date = item.Date,
+                                Hour = item.Hour,
+                                Reason = item.Reason,
+                                PetIdFk = item.PetIdFk,
+                                VeterinarianIdFk = item.VeterinarianIdFk,
+                            });
+                        }
+
+                        context.Quotes.AddRange(entidad);
+                        await context.SaveChangesAsync();
+                    }
+                }
+            }
+            if (!context.MedicalTreatments.Any())
+            {
+                /* Console.WriteLine("ruta:"+ruta); */
+                using (var readerMedicalTreatment = new StreamReader("../Persistence/Data/Csvs/MedicalTreatment.csv"))
+                {
+                    /* using (var csv = new CsvReader(readerMedicalTreatment, CultureInfo.InvariantCulture)) */
+                    using (var csv = new CsvReader(readerMedicalTreatment, new CsvConfiguration(CultureInfo.InvariantCulture)
+                    {
+                        HeaderValidated = null, // Esto deshabilita la validación de encabezados
+                        MissingFieldFound = null
+                    }))
+                    {
+                        var list = csv.GetRecords<MedicalTreatment>();
+
+                        List<MedicalTreatment> entidad = new List<MedicalTreatment>();
+                        foreach (var item in list)
+                        {
+                            entidad.Add(new MedicalTreatment
+                            {
+                                Id = item.Id,
+                                DateStartTreatment = item.DateStartTreatment,
+                                QuoteIdFk = item.QuoteIdFk
+                            });
+                        }
+
+                        context.MedicalTreatments.AddRange(entidad);
+                        await context.SaveChangesAsync();
+                    }
+                }
+            }
+            if (!context.DescriptionMedicalTreatments.Any())
+            {
+                /* Console.WriteLine("ruta:"+ruta); */
+                using (var readerDescriptionMedicalTreatment = new StreamReader("../Persistence/Data/Csvs/DescriptionMedicalTreatment.csv"))
+                {
+                    /* using (var csv = new CsvReader(readerDescriptionMedicalTreatment, CultureInfo.InvariantCulture)) */
+                    using (var csv = new CsvReader(readerDescriptionMedicalTreatment, new CsvConfiguration(CultureInfo.InvariantCulture)
+                    {
+                        HeaderValidated = null, // Esto deshabilita la validación de encabezados
+                        MissingFieldFound = null
+                    }))
+                    {
+                        var list = csv.GetRecords<DescriptionMedicalTreatment>();
+
+                        List<DescriptionMedicalTreatment> entidad = new List<DescriptionMedicalTreatment>();
+                        foreach (var item in list)
+                        {
+                            entidad.Add(new DescriptionMedicalTreatment
+                            {
+                                Id = item.Id,
+                                Dose = item.Dose,
+                                AdministrationDate = item.AdministrationDate,
+                                Observation = item.Observation,
+                                MedicineIdFk = item.MedicineIdFk,
+                                MedicalTreatmentIdFk = item.MedicalTreatmentIdFk
+                            });
+                        }
+
+                        context.DescriptionMedicalTreatments.AddRange(entidad);
+                        await context.SaveChangesAsync();
+                    }
+                }
+            }
 
         }
         catch (Exception ex)

@@ -1,0 +1,8 @@
+Id,Dose,AdministrationDate,Observation,MedicineIdFk,MedicalTreatmentIdFk
+1,Cada 4 horas,2023-01-09,recordar que se administra de forma oral,6,1
+2,Cada 12 horas,2023-01-15,Observacion 2,4,2
+3,Cada 1 horas,2023-10-11,Observacion 3,1,3
+4,Cada 3 horas,2023-10-12,Observacion 4,5,4
+5,Cada 8 horas,2023-02-06,Observacion 5,4,5
+6,Cada 24 horas,2023-03-28,Observacion 6,5,6
+7,Cada 5 horas,2023-10-10,Observacion 7,7,7

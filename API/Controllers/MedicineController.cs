@@ -31,8 +31,6 @@ public class MedicineController: ApiBaseController
         var Medicine = await unitofwork.Medicines.GetAllAsync();
         return mapper.Map<List<MedicineDto>>(Medicine);
     }
-
-    
     [HttpGet]
     [MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
@@ -42,6 +40,50 @@ public class MedicineController: ApiBaseController
         var Medicine = await unitofwork.Medicines.GetAllAsync(Parameters.PageIndex, Parameters.PageSize, Parameters.Search);
         var listEntidad = mapper.Map<List<MedicineDto>>(Medicine.registros);
         return Ok(new Pager<MedicineDto>(listEntidad, Medicine.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
+
+    }
+
+
+    [HttpGet("Consulta2a")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<MedicineDto>>> MedicamentoLaboratorioGenfar()
+    {
+        var Medicine = await unitofwork.Medicines.MedicamentoLaboratorioGenfar();
+        return mapper.Map<List<MedicineDto>>(Medicine);
+    }
+    [HttpGet("Consulta2a")]
+    [MapToApiVersion("1.1")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<MedicineDto>>> MedicamentoLaboratorioGenfar([FromQuery] Params Parameters)
+    {
+        var Medicine = await unitofwork.Medicines.MedicamentoLaboratorioGenfar(Parameters.PageIndex, Parameters.PageSize, Parameters.Search);
+        var listEntidad = mapper.Map<List<MedicineDto>>(Medicine.registros);
+        return Ok(new Pager<MedicineDto>(listEntidad, Medicine.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
+
+    }
+
+    
+    [HttpGet("Consulta5a")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> MedicamentoMayor10Usd()
+    {
+        var Medicine = await unitofwork.Medicines.MedicamentoMayor10Usd();
+        return mapper.Map<List<object>>(Medicine);
+    }
+    [HttpGet("Consulta5a")]
+    [MapToApiVersion("1.1")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<Object>>> MedicamentoMayor10Usd([FromQuery] Params Parameters)
+    {
+        var Medicine = await unitofwork.Medicines.MedicamentoMayor10Usd(Parameters.PageIndex, Parameters.PageSize, Parameters.Search);
+        var listEntidad = mapper.Map<List<Object>>(Medicine.registros);
+        return Ok(new Pager<Object>(listEntidad, Medicine.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
 
     }
 

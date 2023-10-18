@@ -3,3 +3,5 @@ Id,Name,DateBirth,UserOwnerId,SpeciesIdFk,BreedIdFk
 2,Mascota 2,2021-03-20,7,2,2
 3,Mascota 3,2020-05-10,13,3,3
 4,Mascota 4,2019-07-25,14,4,4
+5,Mascota 6,2020-05-10,7,1,1
+6,Mascota 7, 2021-08-25, 14,2,2

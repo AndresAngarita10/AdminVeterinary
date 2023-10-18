@@ -43,6 +43,74 @@ public class PetController : ApiBaseController
 
     }
 
+    
+    [HttpGet("Consulta3a")]
+    [ApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> MascotasFelinos()
+    {
+        var Pet = await unitofwork.Pets.MascotasFelinos();
+        return mapper.Map<List<object>>(Pet);
+    }
+    [HttpGet("Consulta3a")]
+    [MapToApiVersion("1.1")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<Object>>> MascotasFelinos([FromQuery] Params Parameters)
+    {
+        var Pet = await unitofwork.Pets.MascotasFelinos(Parameters.PageIndex, Parameters.PageSize, Parameters.Search);
+        var listEntidad = mapper.Map<List<Object>>(Pet.registros);
+        return Ok(new Pager<Object>(listEntidad, Pet.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
+
+    }
+
+    
+    [HttpGet("Consulta6a")]
+    [ApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> MascotasVacunadasPrimerTrim2023()
+    {
+        var Pet = await unitofwork.Pets.MascotasVacunadasPrimerTrim2023();
+        return mapper.Map<List<object>>(Pet);
+    }
+    [HttpGet("Consulta6a")]
+    [MapToApiVersion("1.1")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<Object>>> MascotasVacunadasPrimerTrim2023([FromQuery] Params Parameters)
+    {
+        var Pet = await unitofwork.Pets.MascotasVacunadasPrimerTrim2023(Parameters.PageIndex, Parameters.PageSize, Parameters.Search);
+        var listEntidad = mapper.Map<List<Object>>(Pet.registros);
+        return Ok(new Pager<Object>(listEntidad, Pet.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
+
+    }
+
+
+    
+    [HttpGet("Consulta1b")]
+    [ApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> EspecieYMascota()
+    {
+        var Pet = await unitofwork.Pets.EspecieYMascota();
+        return mapper.Map<List<object>>(Pet);
+    }
+    [HttpGet("Consulta1b")]
+    [MapToApiVersion("1.1")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<Object>>> EspecieYMascota([FromQuery] Params Parameters)
+    {
+        var Pet = await unitofwork.Pets.EspecieYMascota(Parameters.PageIndex, Parameters.PageSize, Parameters.Search);
+        var listEntidad = mapper.Map<List<Object>>(Pet.registros);
+        return Ok(new Pager<Object>(listEntidad, Pet.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
+
+    }
+
+
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

@@ -43,7 +43,7 @@ public class PartnerController : ApiBaseController
 
     }
     
-    [HttpGet("consulta1")]
+    [HttpGet("consulta1a")]
     [ApiVersion("1.0")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -52,7 +52,7 @@ public class PartnerController : ApiBaseController
         var Partner = await unitofwork.Partners.VeterinarioCirujanoVascular();
         return mapper.Map<List<object>>(Partner);
     }
-    [HttpGet("consulta1")]
+    [HttpGet("consulta1a")]
     [MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -61,6 +61,28 @@ public class PartnerController : ApiBaseController
         var Partner = await unitofwork.Partners.VeterinarioCirujanoVascular(Parameters.PageIndex, Parameters.PageSize, Parameters.Search);
         var listEntidad = mapper.Map<List<PartnerDto>>(Partner.registros);
         return Ok(new Pager<PartnerDto>(listEntidad, Partner.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
+
+    }
+
+    
+    [HttpGet("consulta4a")]
+    [ApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> PropietarioYMascota()
+    {
+        var Partner = await unitofwork.Partners.PropietarioYMascota();
+        return mapper.Map<List<object>>(Partner);
+    }
+    [HttpGet("consulta4a")]
+    [MapToApiVersion("1.1")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<Object>>> PropietarioYMascota([FromQuery] Params Parameters)
+    {
+        var Partner = await unitofwork.Partners.PropietarioYMascota(Parameters.PageIndex, Parameters.PageSize, Parameters.Search);
+        var listEntidad = mapper.Map<List<Object>>(Partner.registros);
+        return Ok(new Pager<Object>(listEntidad, Partner.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
 
     }
 

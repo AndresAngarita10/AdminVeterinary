@@ -1,0 +1,8 @@
+Id,Date,Hour,Reason,PetIdFk,VeterinarianIdFk
+1,2023-01-09,15:30:00,Consulta de rutina,1,2
+2,2023-01-15,10:15:00,Vacunacion,2,8
+3,2023-10-11,14:45:00,Control de peso,3,2
+4,2023-10-12,11:00:00,Tratamiento dental,4,3
+5,2023-02-06,10:15:00,Vacunacion,5,8
+6,2023-03-28,10:15:00,Vacunacion,6,8
+7,2023-10-10,10:15:00,Vacunacion,3,8

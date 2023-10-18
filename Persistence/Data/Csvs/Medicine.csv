@@ -14,3 +14,5 @@ Id,Name,QuantityAvalible,Price,LaboratoryIdFk
 13,Medicina 13,70,7.49,3
 14,Medicina 14,80,12.99,4
 15,Medicina 15,105,16.49,5
+16,Medicina 16,40,9.99,6
+17,Medicina 17,250,4.99,6

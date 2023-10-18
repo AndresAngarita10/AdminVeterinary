@@ -46,4 +46,31 @@ public class MedicineMovementRepository: GenericRepository<MedicineMovement>, IM
 
         return (totalRegistros, registros);
     }
+
+    public async Task<IEnumerable<object>> MovMedicamentoYTotal()
+    {
+        return await (
+            from me in _context.MedicineMovements
+            join type in _context.TypeMovements on me.TypeMovementFk equals type.Id
+            
+            select new 
+            {
+                MovementNumber = me.Id,
+                TypeMovement = type.Name,
+                DetailMov = (
+                    from det in _context.DetailMovements
+                    join med in _context.Medicines on det.MedicineIdFk equals med.Id
+                    where det.MedicineMovementIdFk == me.Id
+                    select new
+                    {
+                        NumberDescription = det.Id,
+                        MedicamentName = med.Name,
+                        Quantity = det.Quantity,
+                        PriceUnit = det.Price,
+                        Check = det.Quantity * det.Price
+                    }
+                ).ToList() 
+            }
+        ).OrderBy(m => m.TypeMovement).ToListAsync();
+    }
 }
