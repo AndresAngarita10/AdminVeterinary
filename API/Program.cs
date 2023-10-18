@@ -36,6 +36,13 @@ builder.Services.ConfigureApiVersioning();
 
 var app = builder.Build();
 
+//-----------------------------------------------------------------------------
+//inyeccion de demas dependencias --------------------------------
+
+
+//fin -------------------------------------
+//------------------------------
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

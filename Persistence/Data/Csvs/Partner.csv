@@ -1,0 +1,15 @@
+Name,Email,Phone,Address,SpecialtyIdFk,GenderIdFk,PartnerTypeIdFk
+Veterinario 1,veterinario1@example.com,123-456-7890,Calle 1,1,1,3
+Veterinario 2,veterinario2@example.com,987-654-3210,Calle 2,2,1,3
+Veterinario 3,veterinario3@example.com,555-555-5555,Calle 3,3,2,3
+Proveedor 1,proveedor1@example.com,111-222-3333,Calle 4,10,1,1
+Proveedor 2,proveedor2@example.com,444-555-6666,Calle 5,10,1,1
+Cliente 1,cliente1@example.com,777-888-9999,Calle 6,11,2,2
+Cliente 2,cliente2@example.com,333-111-2222,Calle 7,11,2,2
+Veterinario 4,veterinario4@example.com,222-333-4444,Calle 4,4,1,3
+Veterinario 5,veterinario5@example.com,555-666-7777,Calle 5,5,1,3
+Veterinario 6,veterinario6@example.com,888-999-0000,Calle 6,6,2,3
+Proveedor 3,proveedor3@example.com,123-234-3456,Calle 7,10,1,1
+Proveedor 4,proveedor4@example.com,987-876-7654,Calle 8,10,1,1
+Cliente 3,cliente3@example.com,234-345-4567,Calle 9,11,2,2
+Cliente 4,cliente4@example.com,432-543-6543,Calle 10,11,2,2

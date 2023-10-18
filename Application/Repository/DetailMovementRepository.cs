@@ -26,4 +26,23 @@ public class DetailMovementRepository: GenericRepository<DetailMovement>, IDetai
         return await _context.DetailMovements
         .FirstOrDefaultAsync(p =>  p.Id == id);
     }
+    
+    public override async Task<(int totalRegistros, IEnumerable<DetailMovement> registros)> GetAllAsync(int pageIndez, int pageSize, int search)
+    {
+        var query = _context.DetailMovements as IQueryable<DetailMovement>;
+        if (!string.IsNullOrEmpty(search.ToString()))
+        {
+            query = query.Where(p => p.MedicineIdFk == search);
+        }
+
+        query = query.OrderBy(p => p.Id);
+        var totalRegistros = await query.CountAsync();
+        var registros = await query
+            .Include(p => p.MedicineMovementIdFk)
+            .Skip((pageIndez - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return (totalRegistros, registros);
+    }
 }

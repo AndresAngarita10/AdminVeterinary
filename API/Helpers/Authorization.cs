@@ -5,7 +5,6 @@ public class Authorization
     public enum Roles
     {
         Administrator,
-        Manager,
         Employee
     }
 

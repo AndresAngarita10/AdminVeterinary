@@ -210,6 +210,9 @@ namespace Persistence.Data.Migrations
                         .HasColumnType("date")
                         .HasColumnName("dateMovement");
 
+                    b.Property<int>("PartnerIdFk")
+                        .HasColumnType("int");
+
                     b.Property<int>("Quantity")
                         .HasMaxLength(3)
                         .HasColumnType("int")
@@ -219,6 +222,8 @@ namespace Persistence.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("PartnerIdFk");
 
                     b.HasIndex("TypeMovementFk");
 
@@ -603,11 +608,19 @@ namespace Persistence.Data.Migrations
 
             modelBuilder.Entity("Domain.Entities.MedicineMovement", b =>
                 {
+                    b.HasOne("Domain.Entities.Partner", "Partner")
+                        .WithMany("MedicineMovements")
+                        .HasForeignKey("PartnerIdFk")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Domain.Entities.TypeMovement", "TypeMovement")
                         .WithMany("MedicineMovements")
                         .HasForeignKey("TypeMovementFk")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Partner");
 
                     b.Navigation("TypeMovement");
                 });
@@ -783,6 +796,8 @@ namespace Persistence.Data.Migrations
 
             modelBuilder.Entity("Domain.Entities.Partner", b =>
                 {
+                    b.Navigation("MedicineMovements");
+
                     b.Navigation("MedicinePartners");
 
                     b.Navigation("Pets");

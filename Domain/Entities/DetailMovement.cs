@@ -1,6 +1,6 @@
 
 namespace Domain.Entities;
-
+//Csv ok y Controller ok
 public class DetailMovement : BaseEntity
 {
     public int Quantity { get; set; }

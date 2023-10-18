@@ -1,5 +1,6 @@
 
 namespace Domain.Entities;
+// Controller ok
 
 public class MedicinePartner : BaseEntity
 {

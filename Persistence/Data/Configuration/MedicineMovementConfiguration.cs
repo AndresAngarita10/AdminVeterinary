@@ -27,6 +27,11 @@ public class MedicineMovementConfiguration : IEntityTypeConfiguration<MedicineMo
         .HasColumnType("date")
         .IsRequired();
 
+
+        builder.HasOne(u => u.Partner)
+        .WithMany(u => u.MedicineMovements)
+        .HasForeignKey(u => u.PartnerIdFk);
+
         builder.HasOne(u => u.TypeMovement)
         .WithMany(u => u.MedicineMovements)
         .HasForeignKey(u => u.TypeMovementFk);

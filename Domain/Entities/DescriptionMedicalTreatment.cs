@@ -1,6 +1,6 @@
 
 namespace Domain.Entities;
-
+// Controller ok
 public class DescriptionMedicalTreatment : BaseEntity
 {
     public string Dose { get; set; } // dosis

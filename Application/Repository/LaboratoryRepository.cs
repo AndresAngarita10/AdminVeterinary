@@ -26,5 +26,25 @@ public class LaboratoryRepository: GenericRepository<Laboratory>, ILaboratoryRep
         return await _context.Laboratories
         .FirstOrDefaultAsync(p =>  p.Id == id);
     }
+
+    public override async Task<(int totalRegistros, IEnumerable<Laboratory> registros)> GetAllAsync(int pageIndez, int pageSize, string search)
+    {
+        var query = _context.Laboratories as IQueryable<Laboratory>;
+
+        if (!string.IsNullOrEmpty(search))
+        {
+            query = query.Where(p => p.Name.ToLower().Contains(search));
+        }
+
+        query = query.OrderBy(p => p.Id);
+        var totalRegistros = await query.CountAsync();
+        var registros = await query
+            .Include(p => p.Medicines)
+            .Skip((pageIndez - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return (totalRegistros, registros);
+    }
 }
 

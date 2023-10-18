@@ -1,6 +1,6 @@
 
 namespace Domain.Entities;
-
+//Csv ok y Controller ok
 public class Partner : BaseEntity
 {
     public string Name { get; set; }
@@ -16,4 +16,5 @@ public class Partner : BaseEntity
     public ICollection<MedicinePartner> MedicinePartners { get; set; }
     public ICollection<Pet> Pets { get; set; }
     public ICollection<Quote> Quotes { get; set; }
+    public ICollection<MedicineMovement> MedicineMovements { get; set; }
 }

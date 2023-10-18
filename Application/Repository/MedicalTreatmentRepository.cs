@@ -26,4 +26,24 @@ public class MedicalTreatmentRepository: GenericRepository<MedicalTreatment>, IM
         return await _context.MedicalTreatments
         .FirstOrDefaultAsync(p =>  p.Id == id);
     }
+    
+    public override async Task<(int totalRegistros, IEnumerable<MedicalTreatment> registros)> GetAllAsync(int pageIndez, int pageSize, int search)
+    {
+        var query = _context.MedicalTreatments as IQueryable<MedicalTreatment>;
+
+        if (!string.IsNullOrEmpty(search.ToString()))
+        {
+            query = query.Where(p => p.Id == search);
+        }
+
+        query = query.OrderBy(p => p.Id);
+        var totalRegistros = await query.CountAsync();
+        var registros = await query
+            .Include(p => p.DescriptionMedicalTreatments)
+            .Skip((pageIndez - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return (totalRegistros, registros);
+    }
 }
