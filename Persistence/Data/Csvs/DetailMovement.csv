@@ -1,5 +1,5 @@
-Quantity,Price,MedicineIdFk,MedicineMovementIdFk
-10,9.99,1,5
-5,12.99,2,6
-15,7.99,3,7
-20,10.49,4,8
+Id,Quantity,Price,MedicineIdFk,MedicineMovementIdFk
+1,10,9.99,1,1
+2,5,12.99,2,2
+3,15,7.99,3,3
+4,20,10.49,4,4

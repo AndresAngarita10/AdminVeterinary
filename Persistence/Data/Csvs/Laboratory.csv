@@ -1,6 +1,6 @@
-Name,Address,Phone
-Laboratorio ABC,123 Calle Principal,123-456-7890
-Laboratorio XYZ,456 Calle Secundaria,987-654-3210
-Laboratorio 123,789 Calle Terciaria,555-555-5555
-Laboratorio Test,555 Calle de Prueba,111-222-3333
-Laboratorio Demo,777 Calle de Demostración,999-888-7777
+Id,Name,Address,Phone
+1,Laboratorio ABC,123 Calle Principal,123-456-7890
+2,Laboratorio XYZ,456 Calle Secundaria,987-654-3210
+3,Laboratorio 123,789 Calle Terciaria,555-555-5555
+4,Laboratorio Test,555 Calle de Prueba,111-222-3333
+5,Laboratorio Demo,777 Calle de Demostración,999-888-7777

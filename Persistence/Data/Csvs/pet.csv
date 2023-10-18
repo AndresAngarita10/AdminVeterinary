@@ -1,5 +1,5 @@
-Id,name,datebirth,UserOwnerId,SpeciesIdFk,BreedIdFk
-1,"Mascota 1",2022-01-15,21,1,1
-2,"Mascota 2",2021-03-20,22,2,2
-3,"Mascota 3",2020-05-10,28,3,3
-4,"Mascota 4",2019-07-25,29,4,4
+Id,Name,DateBirth,UserOwnerId,SpeciesIdFk,BreedIdFk
+1,Mascota 1,2022-01-15,6,1,1
+2,Mascota 2,2021-03-20,7,2,2
+3,Mascota 3,2020-05-10,13,3,3
+4,Mascota 4,2019-07-25,14,4,4

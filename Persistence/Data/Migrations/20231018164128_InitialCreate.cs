@@ -236,28 +236,6 @@ namespace Persistence.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "medicineMovement",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    quantity = table.Column<int>(type: "int", maxLength: 3, nullable: false),
-                    dateMovement = table.Column<DateOnly>(type: "date", nullable: false),
-                    TypeMovementFk = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_medicineMovement", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_medicineMovement_typeMovement_TypeMovementFk",
-                        column: x => x.TypeMovementFk,
-                        principalTable: "typeMovement",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                })
-                .Annotation("MySql:CharSet", "utf8mb4");
-
-            migrationBuilder.CreateTable(
                 name: "refreshToken",
                 columns: table => new
                 {
@@ -303,6 +281,35 @@ namespace Persistence.Data.Migrations
                         name: "FK_userRol_user_UserIdFk",
                         column: x => x.UserIdFk,
                         principalTable: "user",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                })
+                .Annotation("MySql:CharSet", "utf8mb4");
+
+            migrationBuilder.CreateTable(
+                name: "medicineMovement",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    quantity = table.Column<int>(type: "int", maxLength: 3, nullable: false),
+                    dateMovement = table.Column<DateOnly>(type: "date", nullable: false),
+                    TypeMovementFk = table.Column<int>(type: "int", nullable: false),
+                    PartnerIdFk = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_medicineMovement", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_medicineMovement_partner_PartnerIdFk",
+                        column: x => x.PartnerIdFk,
+                        principalTable: "partner",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_medicineMovement_typeMovement_TypeMovementFk",
+                        column: x => x.TypeMovementFk,
+                        principalTable: "typeMovement",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -514,6 +521,11 @@ namespace Persistence.Data.Migrations
                 name: "IX_medicine_LaboratoryIdFk",
                 table: "medicine",
                 column: "LaboratoryIdFk");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_medicineMovement_PartnerIdFk",
+                table: "medicineMovement",
+                column: "PartnerIdFk");
 
             migrationBuilder.CreateIndex(
                 name: "IX_medicineMovement_TypeMovementFk",

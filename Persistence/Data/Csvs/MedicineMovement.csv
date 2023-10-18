@@ -1,5 +1,5 @@
-Quantity,DateMovement,TypeMovementFk,PartnerIdFk
-10,2023-09-15,1,19
-5,2023-09-16,2,21
-15,2023-09-17,1,20
-20,2023-09-18,2,28
+Id,Quantity,DateMovement,TypeMovementFk,PartnerIdFk
+1,10,2023-09-15,1,6
+2,5,2023-09-16,2,5
+3,15,2023-09-17,1,14
+4,20,2023-09-18,2,5

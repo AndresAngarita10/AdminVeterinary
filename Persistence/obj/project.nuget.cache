@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "qcwLCzqwS5P2Z8WSjIHqTXeEkhMpg8noA2UvkQn/62iDAziSjsAfMiWGAMwPIF6h/RpkuATjw5qMwbBuxK329Q==",
+  "dgSpecHash": "qM3kmGAMmcpoemBluT7QMnZiAP6pECLfoER2mFEKGu2ZRDkPo1VPmqgzxXKnDg8FYzhGaF9lXG28HC9/F1csUQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\andre\\OneDrive\\Escritorio\\AdminVeterinary\\Persistence\\Persistence.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\andre\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",

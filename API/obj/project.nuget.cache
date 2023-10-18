@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "WBn30/IeImaKsLMGwEIN6fgsJZp2uJBJCv92unNy5VmMBkUEsAmyuHOYFtsVZUx9Cp9qm+3YnD4B72+qTaSM5g==",
+  "dgSpecHash": "M3jzxgCUXG9Ts9oR8i+C8ArXZqI4UiXEYIGjeDNlnPdRiiBchJB7kPIvswVpHhjyFymhUcTivOWs3g0rlXQwiQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\andre\\OneDrive\\Escritorio\\AdminVeterinary\\API\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\andre\\.nuget\\packages\\aspnetcoreratelimit\\5.0.0\\aspnetcoreratelimit.5.0.0.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
+    "C:\\Users\\andre\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",

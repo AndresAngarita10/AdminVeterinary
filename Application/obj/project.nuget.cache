@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "MSlbm76CGw4cohKnEzDXOQ1si0myfK87ACOHK8qJanOmzl0E5yi6D+7ei7JlwaBUZKHBFgtHcuUOIHvhAGeOMw==",
+  "dgSpecHash": "jCxKfpU+1apMiMjZUPKOVrx6cFCVVCI5RS7u9FAU5LCc9MBnGfEEmqoQasrMKpGc4BRhImprTXOGUJ8M9CLkZQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\andre\\OneDrive\\Escritorio\\AdminVeterinary\\Application\\Application.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\andre\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\andre\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",

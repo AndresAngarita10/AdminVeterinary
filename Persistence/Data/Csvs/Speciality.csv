@@ -1,10 +1,13 @@
-Name
-Cirugía
-Dermatología
-Oftalmología
-Cardiología
-Neurología
-Odontología
-Radiología
-Oncología
-Endocrinología
+Id,Name
+1,Cirugía
+2,Dermatología
+3,Oftalmología
+4,Cardiología
+5,Neurología
+6,Odontología
+7,Radiología
+8,Oncología
+9,Endocrinología
+10,Proveedor
+11,Cliente
+12,Cirujano Vascular
