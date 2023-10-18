@@ -1,16 +1,20 @@
 
 using API.Dtos;
+using API.Helpers.Errors;
 using AutoMapper;
 using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
+[ApiVersion("1.0")]
+[ApiVersion("1.1")]
+/* [Authorize] */
 
-public class MedicineMovementController: ApiBaseController
+public class MedicineMovementController : ApiBaseController
 {
     private readonly IUnitOfWork unitofwork;
-    private readonly  IMapper mapper;
+    private readonly IMapper mapper;
 
     public MedicineMovementController(IUnitOfWork unitofwork, IMapper mapper)
     {
@@ -19,12 +23,25 @@ public class MedicineMovementController: ApiBaseController
     }
 
     [HttpGet]
+    [ApiVersion("1.0")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<IEnumerable<MedicineMovementDto>>> Get()
     {
         var MedicineMovement = await unitofwork.MedicineMovements.GetAllAsync();
         return mapper.Map<List<MedicineMovementDto>>(MedicineMovement);
+    }
+    
+    [HttpGet]
+    [MapToApiVersion("1.1")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<MedicineMovementDto>>> Get([FromQuery] Params Parameters)
+    {
+        var MedicineMovement = await unitofwork.MedicineMovements.GetAllAsync(Parameters.PageIndex, Parameters.PageSize, Parameters.Search);
+        var listEntidad = mapper.Map<List<MedicineMovementDto>>(MedicineMovement.registros);
+        return Ok(new Pager<MedicineMovementDto>(listEntidad, MedicineMovement.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
+
     }
 
     [HttpGet("{id}")]
@@ -34,7 +51,8 @@ public class MedicineMovementController: ApiBaseController
     public async Task<ActionResult<MedicineMovementDto>> Get(int id)
     {
         var MedicineMovement = await unitofwork.MedicineMovements.GetByIdAsync(id);
-        if (MedicineMovement == null){
+        if (MedicineMovement == null)
+        {
             return NotFound();
         }
         return this.mapper.Map<MedicineMovementDto>(MedicineMovement);
@@ -48,20 +66,21 @@ public class MedicineMovementController: ApiBaseController
         var MedicineMovement = this.mapper.Map<MedicineMovement>(MedicineMovementDto);
         this.unitofwork.MedicineMovements.Add(MedicineMovement);
         await unitofwork.SaveAsync();
-        if(MedicineMovement == null)
+        if (MedicineMovement == null)
         {
             return BadRequest();
         }
         MedicineMovementDto.Id = MedicineMovement.Id;
-        return CreatedAtAction(nameof(Post), new {id = MedicineMovementDto.Id}, MedicineMovementDto);
+        return CreatedAtAction(nameof(Post), new { id = MedicineMovementDto.Id }, MedicineMovementDto);
     }
 
     [HttpPut("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<MedicineMovementDto>> Put(int id, [FromBody]MedicineMovementDto MedicineMovementDto){
-        if(MedicineMovementDto == null)
+    public async Task<ActionResult<MedicineMovementDto>> Put(int id, [FromBody] MedicineMovementDto MedicineMovementDto)
+    {
+        if (MedicineMovementDto == null)
         {
             return NotFound();
         }
@@ -74,9 +93,10 @@ public class MedicineMovementController: ApiBaseController
     [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> Delete(int id){
+    public async Task<IActionResult> Delete(int id)
+    {
         var MedicineMovement = await unitofwork.MedicineMovements.GetByIdAsync(id);
-        if(MedicineMovement == null)
+        if (MedicineMovement == null)
         {
             return NotFound();
         }

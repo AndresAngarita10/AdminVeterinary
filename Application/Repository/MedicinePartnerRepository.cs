@@ -26,5 +26,25 @@ public class MedicinePartnerRepository: GenericRepository<MedicinePartner>, IMed
         return await _context.MedicinePartners
         .FirstOrDefaultAsync(p =>  p.Id == id);
     }
+    
+    public override async Task<(int totalRegistros, IEnumerable<MedicinePartner> registros)> GetAllAsync(int pageIndez, int pageSize, int search)
+    {
+        var query = _context.MedicinePartners as IQueryable<MedicinePartner>;
+
+        if (!string.IsNullOrEmpty(search.ToString()))
+        {
+            query = query.Where(p => p.Id == search);
+        }
+
+        query = query.OrderBy(p => p.Id);
+        var totalRegistros = await query.CountAsync();
+        var registros = await query
+            /* .Include(p => p) */
+            .Skip((pageIndez - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return (totalRegistros, registros);
+    }
 }
 

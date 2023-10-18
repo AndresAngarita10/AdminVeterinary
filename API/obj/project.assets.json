@@ -5992,19 +5992,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\APT01-042\\.nuget\\packages\\": {}
+    "C:\\Users\\andre\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\andre\\OneDrive\\Escritorio\\AdminVeterinary\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\APT01-042\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\API\\obj\\",
+      "projectPath": "C:\\Users\\andre\\OneDrive\\Escritorio\\AdminVeterinary\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\andre\\OneDrive\\Escritorio\\AdminVeterinary\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\APT01-042\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -6016,8 +6016,8 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
-            "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\Application\\Application.csproj": {
-              "projectPath": "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\Application\\Application.csproj"
+            "C:\\Users\\andre\\OneDrive\\Escritorio\\AdminVeterinary\\Application\\Application.csproj": {
+              "projectPath": "C:\\Users\\andre\\OneDrive\\Escritorio\\AdminVeterinary\\Application\\Application.csproj"
             }
           }
         }
@@ -6098,7 +6098,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

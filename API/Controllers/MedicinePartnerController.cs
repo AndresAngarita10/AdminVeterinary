@@ -1,11 +1,15 @@
 
 using API.Dtos;
+using API.Helpers.Errors;
 using AutoMapper;
 using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
+[ApiVersion("1.0")]
+[ApiVersion("1.1")]
+/* [Authorize] */
 
 public class MedicinePartnerController: ApiBaseController
 {
@@ -19,12 +23,25 @@ public class MedicinePartnerController: ApiBaseController
     }
 
     [HttpGet]
+    [MapToApiVersion("1.0")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<IEnumerable<MedicinePartnerDto>>> Get()
     {
         var MedicinePartner = await unitofwork.MedicinePartners.GetAllAsync();
         return mapper.Map<List<MedicinePartnerDto>>(MedicinePartner);
+    }
+    
+    [HttpGet]
+    [MapToApiVersion("1.1")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<MedicinePartnerDto>>> Get([FromQuery] Params Parameters)
+    {
+        var MedicinePartner = await unitofwork.MedicinePartners.GetAllAsync(Parameters.PageIndex, Parameters.PageSize, Parameters.Search);
+        var listEntidad = mapper.Map<List<MedicinePartnerDto>>(MedicinePartner.registros);
+        return Ok(new Pager<MedicinePartnerDto>(listEntidad, MedicinePartner.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
+
     }
 
     [HttpGet("{id}")]

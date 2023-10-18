@@ -26,4 +26,24 @@ public class MedicineMovementRepository: GenericRepository<MedicineMovement>, IM
         return await _context.MedicineMovements
         .FirstOrDefaultAsync(p =>  p.Id == id);
     }
+    
+    public override async Task<(int totalRegistros, IEnumerable<MedicineMovement> registros)> GetAllAsync(int pageIndez, int pageSize, int search)
+    {
+        var query = _context.MedicineMovements as IQueryable<MedicineMovement>;
+
+        if (!string.IsNullOrEmpty(search.ToString()))
+        {
+            query = query.Where(p => p.Id == search);
+        }
+
+        query = query.OrderBy(p => p.Id);
+        var totalRegistros = await query.CountAsync();
+        var registros = await query
+            /* .Include(p => p) */
+            .Skip((pageIndez - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return (totalRegistros, registros);
+    }
 }

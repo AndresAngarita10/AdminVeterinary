@@ -1,16 +1,20 @@
 
 using API.Dtos;
+using API.Helpers.Errors;
 using AutoMapper;
 using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
+[ApiVersion("1.0")]
+[ApiVersion("1.1")]
+/* [Authorize] */
 
-public class PetController: ApiBaseController
+public class PetController : ApiBaseController
 {
     private readonly IUnitOfWork unitofwork;
-    private readonly  IMapper mapper;
+    private readonly IMapper mapper;
 
     public PetController(IUnitOfWork unitofwork, IMapper mapper)
     {
@@ -19,12 +23,24 @@ public class PetController: ApiBaseController
     }
 
     [HttpGet]
+    [ApiVersion("1.0")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<IEnumerable<PetDto>>> Get()
     {
         var Pet = await unitofwork.Pets.GetAllAsync();
         return mapper.Map<List<PetDto>>(Pet);
+    }
+    [HttpGet]
+    [MapToApiVersion("1.1")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<PetDto>>> Get([FromQuery] Params Parameters)
+    {
+        var Pet = await unitofwork.Pets.GetAllAsync(Parameters.PageIndex, Parameters.PageSize, Parameters.Search);
+        var listEntidad = mapper.Map<List<PetDto>>(Pet.registros);
+        return Ok(new Pager<PetDto>(listEntidad, Pet.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
+
     }
 
     [HttpGet("{id}")]
@@ -34,7 +50,8 @@ public class PetController: ApiBaseController
     public async Task<ActionResult<PetDto>> Get(int id)
     {
         var Pet = await unitofwork.Pets.GetByIdAsync(id);
-        if (Pet == null){
+        if (Pet == null)
+        {
             return NotFound();
         }
         return this.mapper.Map<PetDto>(Pet);
@@ -48,20 +65,21 @@ public class PetController: ApiBaseController
         var Pet = this.mapper.Map<Pet>(PetDto);
         this.unitofwork.Pets.Add(Pet);
         await unitofwork.SaveAsync();
-        if(Pet == null)
+        if (Pet == null)
         {
             return BadRequest();
         }
         PetDto.Id = Pet.Id;
-        return CreatedAtAction(nameof(Post), new {id = PetDto.Id}, PetDto);
+        return CreatedAtAction(nameof(Post), new { id = PetDto.Id }, PetDto);
     }
 
     [HttpPut("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<PetDto>> Put(int id, [FromBody]PetDto PetDto){
-        if(PetDto == null)
+    public async Task<ActionResult<PetDto>> Put(int id, [FromBody] PetDto PetDto)
+    {
+        if (PetDto == null)
         {
             return NotFound();
         }
@@ -74,9 +92,10 @@ public class PetController: ApiBaseController
     [HttpDelete("{id}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> Delete(int id){
+    public async Task<IActionResult> Delete(int id)
+    {
         var Pet = await unitofwork.Pets.GetByIdAsync(id);
-        if(Pet == null)
+        if (Pet == null)
         {
             return NotFound();
         }
