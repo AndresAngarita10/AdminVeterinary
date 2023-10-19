@@ -109,13 +109,15 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
 ## Especificacion de todos los Endpoints requeridos en metodo POSt⌨️
 
   ###Tabla Breed :
+  
     **Método**: `POST`
     **Endpoint**: `http://localhost:5021/api/Breed`
     {
     	"Name":"Esponja"
     }
   ###Tabla TypeMovement :
-
+  
+    **Método**: `POST`
     **Endpoint**: `http://localhost:5021/api/typemovement`
     {
     	"Name":"Fianza"
@@ -128,18 +130,21 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
     }
   ###Tabla Speciality :
 
+    **Método**: `POST`
     **Endpoint**: `http://localhost:5021/api/SpecialityControllers`
     {
     	"Name":"Reanimador"
     }
   ###Tabla Gender :
 
+    **Método**: `POST`
     **Endpoint**: `http://localhost:5021/api/Gender`
     {
     	"Name":"No Definido"
     }
   ###Tabla Laboratory :
 
+    **Método**: `POST`
     **Endpoint**: `http://localhost:5021/api/Laboratory`
     {
     	"Name":"Genfares",
@@ -148,6 +153,7 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
     }
   ###Tabla Medicine :
 
+    **Método**: `POST`
     **Endpoint**: `http://localhost:5021/api/Medicine`
     {
     	"Name":"Terramicina",
@@ -157,6 +163,7 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
     }
   ###Tabla Partner :
 
+    **Método**: `POST`
     **Endpoint**: `http://localhost:5021/api/Partner`
     {	
       "Name":"Carlos camilo",
@@ -169,6 +176,8 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
     }
   ###Tabla Pet :
 
+
+    **Método**: `POST`
     **Endpoint**: `http://localhost:5021/api/Pet`
     {
       "Name":"Carlos camilo pet",
@@ -179,6 +188,7 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
     }
   ###Tabla Quote :
 
+    **Método**: `POST`
     **Endpoint**: `http://localhost:5021/api/Quote`
     {
     	"Hour":"15:30:00",
@@ -189,6 +199,7 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
     }
   ###Tabla MedicinePartner :
 
+    **Método**: `POST`
     **Endpoint**: `http://localhost:5021/api/MedicinePartner`
     {
     	"MedicineIdFk":18,
@@ -196,6 +207,7 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
     }
   ###Tabla MedicalTreatment :
 
+    **Método**: `POST`
     **Endpoint**: `http://localhost:5021/api/MedicalTreatment`
     {
     	"DateStartTreatment":"2022-01-15",
@@ -203,6 +215,7 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
     }
   ###Tabla DescriptionMedicalTreatment :
 
+    **Método**: `POST`
     **Endpoint**: `http://localhost:5021/api/DescriptionMedicalTreatment`
     {
     	"Dose":"sahbdjhsadsfsdlkjfdsalkj",
@@ -213,12 +226,14 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
     }
   ###Tabla PartnerType :
 
+    **Método**: `POST`
     **Endpoint**: `http://localhost:5021/api/PartnerType`
     {
     	"Name":"No definido"
     }
   ###Tabla MedicineMovement :
 
+    **Método**: `POST`
     **Endpoint**: `http://localhost:5021/api/typemovement`
     {
     	"Quantity":2,
@@ -228,6 +243,7 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
     }
   ###Tabla DetailMovement :
 
+    **Método**: `POST`
     **Endpoint**: `http://localhost:5021/api/DetailMovement`
     {
     	"Quantity":2,
