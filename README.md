@@ -108,6 +108,12 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
 
 ## Especificacion de todos los Endpoints requeridos en metodo POSt⌨️
 
+###Comenzamos con la tabla Breed :
+
+    **Endpoint**: `http://localhost:5021/api/refresh-token`
+    {
+    	"Name":"Esponja"
+    }
 
 ## Desarrollo de los Endpoints requeridos⌨️
 
