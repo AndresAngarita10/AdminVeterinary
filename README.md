@@ -194,6 +194,29 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
     	"MedicineIdFk":18,
     	"PartnerIdFk":4
     }
+  ###Tabla MedicalTreatment :
+
+    **Endpoint**: `http://localhost:5021/api/MedicalTreatment`
+    {
+    	"DateStartTreatment":"2022-01-15",
+    	"QuoteIdFk":8
+    }
+  ###Tabla DescriptionMedicalTreatment :
+
+    **Endpoint**: `http://localhost:5021/api/DescriptionMedicalTreatment`
+    {
+    	"Dose":"sahbdjhsadsfsdlkjfdsalkj",
+    	"AdministrationDate":"2022-01-15",
+    	"Observation":"sadsadas",
+    	"MedicineIdFk":4,
+    	"MedicalTreatmentIdFk":2
+    }
+  ###Tabla PartnerType :
+
+    **Endpoint**: `http://localhost:5021/api/PartnerType`
+    {
+    	"Name":"No definido"
+    }
   ###Tabla TypeMovement :
 
     **Endpoint**: `http://localhost:5021/api/typemovement`
