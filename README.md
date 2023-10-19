@@ -109,7 +109,7 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
 ## Especificacion de todos los Endpoints requeridos en metodo POSt⌨️
 
   ###Tabla Breed :
-
+    **Método**: `POST`
     **Endpoint**: `http://localhost:5021/api/Breed`
     {
     	"Name":"Esponja"
