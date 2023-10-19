@@ -106,6 +106,8 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
     
     Eliminar Usuario: DELETE `http://localhost:5021/api/user/{id}`
 
+## Especificacion de todos los Endpoints requeridos en metodo POSt⌨️
+
 
 ## Desarrollo de los Endpoints requeridos⌨️
 
