@@ -155,29 +155,44 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
     	"Price":10.99,
     	"LaboratoryIdFk":1
     }
-  ###Tabla TypeMovement :
+  ###Tabla Partner :
 
-    **Endpoint**: `http://localhost:5021/api/typemovement`
-    {
-    	"Name":"Fianza"
+    **Endpoint**: `http://localhost:5021/api/Partner`
+    {	
+      "Name":"Carlos camilo",
+    	"Email":"calos@a.com",
+    	"Phone":"3005669",
+    	"Address":"calle re falsa 123",
+    	"SpecialtyIdFk":11,
+    	"GenderIdFk":1,
+    	"PartnerTypeIdFk":2
     }
-  ###Tabla TypeMovement :
+  ###Tabla Pet :
 
-    **Endpoint**: `http://localhost:5021/api/typemovement`
+    **Endpoint**: `http://localhost:5021/api/Pet`
     {
-    	"Name":"Fianza"
+      "Name":"Carlos camilo pet",
+      "DateBirth":"2022-01-15",
+      "UserOwnerId":14,
+      "SpeciesIdFk":2,
+      "BreedIdFk":1
     }
-  ###Tabla TypeMovement :
+  ###Tabla Quote :
 
-    **Endpoint**: `http://localhost:5021/api/typemovement`
+    **Endpoint**: `http://localhost:5021/api/Quote`
     {
-    	"Name":"Fianza"
+    	"Hour":"15:30:00",
+    	"Date":"2022-01-15",
+    	"Reason":"asmndfbksafdlkusahdf",
+    	"PetIdFk":2,
+    	"VeterinarianIdFk":1
     }
-  ###Tabla TypeMovement :
+  ###Tabla MedicinePartner :
 
-    **Endpoint**: `http://localhost:5021/api/typemovement`
+    **Endpoint**: `http://localhost:5021/api/MedicinePartner`
     {
-    	"Name":"Fianza"
+    	"MedicineIdFk":18,
+    	"PartnerIdFk":4
     }
   ###Tabla TypeMovement :
 
