@@ -108,11 +108,65 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
 
 ## Especificacion de todos los Endpoints requeridos en metodo POSt⌨️
 
-###Comenzamos con la tabla Breed :
+  ###Tabla Breed :
 
-    **Endpoint**: `http://localhost:5021/api/refresh-token`
+    **Endpoint**: `http://localhost:5021/api/Breed`
     {
     	"Name":"Esponja"
+    }
+  ###Tabla TypeMovement :
+
+    **Endpoint**: `http://localhost:5021/api/typemovement`
+    {
+    	"Name":"Fianza"
+    }
+  ###Tabla Specie :
+
+    **Endpoint**: `http://localhost:5021/api/Specie`
+    {
+    	"Name":"Raro"
+    }
+  ###Tabla Speciality :
+
+    **Endpoint**: `http://localhost:5021/api/SpecialityControllers`
+    {
+    	"Name":"Reanimador"
+    }
+  ###Tabla Gender :
+
+    **Endpoint**: `http://localhost:5021/api/Gender`
+    {
+    	"Name":"No Definido"
+    }
+  ###Tabla TypeMovement :
+
+    **Endpoint**: `http://localhost:5021/api/typemovement`
+    {
+    	"Name":"Fianza"
+    }
+  ###Tabla TypeMovement :
+
+    **Endpoint**: `http://localhost:5021/api/typemovement`
+    {
+    	"Name":"Fianza"
+    }
+  ###Tabla TypeMovement :
+
+    **Endpoint**: `http://localhost:5021/api/typemovement`
+    {
+    	"Name":"Fianza"
+    }
+  ###Tabla TypeMovement :
+
+    **Endpoint**: `http://localhost:5021/api/typemovement`
+    {
+    	"Name":"Fianza"
+    }
+  ###Tabla TypeMovement :
+
+    **Endpoint**: `http://localhost:5021/api/typemovement`
+    {
+    	"Name":"Fianza"
     }
 
 ## Desarrollo de los Endpoints requeridos⌨️
