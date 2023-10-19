@@ -21,6 +21,7 @@ public class UserController : ApiBaseController
         var result = await _userService.RegisterAsync(model);
         return Ok(result);
     }
+    
     [HttpPost("token")]
     public async Task<IActionResult> GetTokenAsync(LoginDto model)
     {

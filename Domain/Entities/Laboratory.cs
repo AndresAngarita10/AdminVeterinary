@@ -2,7 +2,7 @@
 namespace Domain.Entities;
 //Csv ok y Controller ok
 
-public class Laboratory : BaseEntity
+public class Laboratory : BaseEntity//ok
 {
     public string Name { get; set; }
     public string Address { get; set; }

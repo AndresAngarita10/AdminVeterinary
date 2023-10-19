@@ -1,7 +1,7 @@
 
 namespace Domain.Entities;
 //Csv ok y Controller ok
-public class Partner : BaseEntity
+public class Partner : BaseEntity//ok
 {
     public string Name { get; set; }
     public string Email { get; set; }

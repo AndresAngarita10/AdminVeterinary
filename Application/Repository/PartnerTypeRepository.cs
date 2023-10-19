@@ -26,5 +26,25 @@ public class PartnerTypeRepository : GenericRepository<PartnerType>, IPartnerTyp
         return await _context.PartnerTypes
         .FirstOrDefaultAsync(p =>  p.Id == id);
     }
+
+    
+    public override async Task<(int totalRegistros, IEnumerable<PartnerType> registros)> GetAllAsync(int pageIndez, int pageSize, string search)
+    {
+        var query = _context.PartnerTypes as IQueryable<PartnerType>;
+
+        if (!string.IsNullOrEmpty(search))
+        {
+            query = query.Where(p => p.Name.ToLower().Contains(search));
+        }
+
+        query = query.OrderBy(p => p.Id);
+        var totalRegistros = await query.CountAsync();
+        var registros = await query
+            .Skip((pageIndez - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return (totalRegistros, registros);
+    }
 }
 

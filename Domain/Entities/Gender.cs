@@ -1,7 +1,7 @@
 
 namespace Domain.Entities;
 //Csv ok y Controller ok
-public class Gender : BaseEntity
+public class Gender : BaseEntity // ok
 {
     public string Name { get; set; }
     public ICollection<User> Users { get; set; }

@@ -26,4 +26,22 @@ public class TypeMovementRepository : GenericRepository<TypeMovement>, ITypeMove
         return await _context.TypeMovements
         .FirstOrDefaultAsync(p =>  p.Id == id);
     }
+    public override async Task<(int totalRegistros, IEnumerable<TypeMovement> registros)> GetAllAsync(int pageIndez, int pageSize, string search)
+    {
+        var query = _context.TypeMovements as IQueryable<TypeMovement>;
+
+        if (!string.IsNullOrEmpty(search))
+        {
+            query = query.Where(p => p.Name.ToLower().Contains(search));
+        }
+
+        query = query.OrderBy(p => p.Id);
+        var totalRegistros = await query.CountAsync();
+        var registros = await query
+            .Skip((pageIndez - 1) * pageSize)
+            .Take(pageSize)
+            .ToListAsync();
+
+        return (totalRegistros, registros);
+    }
 }

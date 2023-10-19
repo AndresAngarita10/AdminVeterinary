@@ -1,7 +1,7 @@
 
 namespace Domain.Entities;
 //Csv ok y Controller ok
-public class MedicineMovement : BaseEntity
+public class MedicineMovement : BaseEntity //ok
 {
     public int Quantity { get; set; }
     public DateOnly DateMovement { get; set; }

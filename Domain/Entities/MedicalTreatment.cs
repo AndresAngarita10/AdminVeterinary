@@ -2,7 +2,7 @@
 namespace Domain.Entities;
 // Controller ok
 
-public class MedicalTreatment : BaseEntity
+public class MedicalTreatment : BaseEntity//ok
 {
     public DateOnly DateStartTreatment { get; set; }
     public int QuoteIdFk { get; set; }

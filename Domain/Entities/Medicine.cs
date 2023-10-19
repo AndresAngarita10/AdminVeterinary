@@ -2,7 +2,7 @@
 namespace Domain.Entities;
 //Csv ok y Controller ok
 
-public class Medicine : BaseEntity
+public class Medicine : BaseEntity//ok
 {
     public string Name { get; set; }
     public int QuantityAvalible { get; set; }//Cantidad disponible

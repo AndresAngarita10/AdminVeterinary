@@ -2,7 +2,7 @@
 namespace Domain.Entities;
 //Csv ok y Controller ok
 
-public class Pet : BaseEntity
+public class Pet : BaseEntity//ok
 {
     public string Name { get; set; }
     public DateOnly DateBirth { get; set; }

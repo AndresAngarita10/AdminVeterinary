@@ -2,7 +2,7 @@
 namespace Domain.Entities;
 //Csv ok y Controller ok
 
-public class Quote : BaseEntity
+public class Quote : BaseEntity//ok
 {
     public DateOnly Date { get; set; }
     public TimeOnly Hour { get; set; }
