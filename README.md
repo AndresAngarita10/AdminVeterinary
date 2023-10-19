@@ -124,6 +124,7 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
     }
   ###Tabla Specie :
 
+    **Método**: `POST`
     **Endpoint**: `http://localhost:5021/api/Specie`
     {
     	"Name":"Raro"
