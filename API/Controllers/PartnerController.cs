@@ -86,6 +86,51 @@ public class PartnerController : ApiBaseController
 
     }
 
+    
+    [HttpGet("consulta3b/{nameVeterinary}")]
+    [ApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> MascotasAtendidasPorVeterinario(string nameVeterinary)
+    {
+        var Partner = await unitofwork.Partners.MascotasAtendidasPorVeterinario(nameVeterinary);
+        return mapper.Map<List<object>>(Partner);
+    }
+    [HttpGet("consulta3b/{nameVeterinary}")]
+    [MapToApiVersion("1.1")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<Object>>> MascotasAtendidasPorVeterinario([FromQuery] Params Parameters,string nameVeterinary)
+    {
+        var Partner = await unitofwork.Partners.MascotasAtendidasPorVeterinario(Parameters.PageIndex, Parameters.PageSize, Parameters.Search,nameVeterinary);
+        var listEntidad = mapper.Map<List<Object>>(Partner.registros);
+        return Ok(new Pager<Object>(listEntidad, Partner.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
+
+    }
+
+
+    
+    [HttpGet("consulta4b/{MedcineName}")]
+    [ApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> ProvVendeXMedicamento(string MedcineName)
+    {
+        var Partner = await unitofwork.Partners.ProvVendeXMedicamento(MedcineName);
+        return mapper.Map<List<object>>(Partner);
+    }
+    [HttpGet("consulta4b/{MedcineName}")]
+    [MapToApiVersion("1.1")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<Object>>> ProvVendeXMedicamento([FromQuery] Params Parameters,string MedcineName)
+    {
+        var Partner = await unitofwork.Partners.ProvVendeXMedicamento(Parameters.PageIndex, Parameters.PageSize, Parameters.Search,MedcineName);
+        var listEntidad = mapper.Map<List<Object>>(Partner.registros);
+        return Ok(new Pager<Object>(listEntidad, Partner.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
+
+    }
+
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

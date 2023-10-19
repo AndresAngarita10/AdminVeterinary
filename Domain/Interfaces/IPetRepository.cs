@@ -11,6 +11,11 @@ public interface IPetRepository : IGenericRepository<Pet>
     abstract Task<(int totalRegistros, IEnumerable<object> registros)> MascotasVacunadasPrimerTrim2023(int pageIndex, int pageSize, string search);
     abstract Task<IEnumerable<object>> EspecieYMascota();
     abstract Task<(int totalRegistros, IEnumerable<object> registros)> EspecieYMascota(int pageIndex, int pageSize, string search);
+    abstract Task<IEnumerable<object>> GoldenRetrieverMasDueño();
+    abstract Task<IEnumerable<object>> MascotasXRaza();
+    abstract Task<(int totalRegistros, IEnumerable<object> registros)> GoldenRetrieverMasDueño(int pageIndex, int pageSize,string search);
+    abstract Task<(int totalRegistros, IEnumerable<object> registros)> MascotasXRaza(int pageIndex, int pageSize,string search);
+
 
 
 

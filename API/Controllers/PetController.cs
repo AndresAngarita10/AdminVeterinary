@@ -110,6 +110,51 @@ public class PetController : ApiBaseController
 
     }
 
+    
+
+    [HttpGet("Consulta5b")]
+    [ApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> GoldenRetrieverMasDueño()
+    {
+        var Pet = await unitofwork.Pets.GoldenRetrieverMasDueño();
+        return mapper.Map<List<object>>(Pet);
+    }
+    [HttpGet("Consulta5b")]
+    [MapToApiVersion("1.1")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<Object>>> GoldenRetrieverMasDueño([FromQuery] Params Parameters)
+    {
+        var Pet = await unitofwork.Pets.GoldenRetrieverMasDueño(Parameters.PageIndex, Parameters.PageSize, Parameters.Search);
+        var listEntidad = mapper.Map<List<Object>>(Pet.registros);
+        return Ok(new Pager<Object>(listEntidad, Pet.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
+
+    }
+
+    
+    [HttpGet("Consulta6b")]
+    [ApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> MascotasXRaza()
+    {
+        var Pet = await unitofwork.Pets.MascotasXRaza();
+        return mapper.Map<List<object>>(Pet);
+    }
+    [HttpGet("Consulta6b")]
+    [MapToApiVersion("1.1")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<Object>>> MascotasXRaza([FromQuery] Params Parameters)
+    {
+        var Pet = await unitofwork.Pets.MascotasXRaza(Parameters.PageIndex, Parameters.PageSize, Parameters.Search);
+        var listEntidad = mapper.Map<List<Object>>(Pet.registros);
+        return Ok(new Pager<Object>(listEntidad, Pet.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
+
+    }
+
 
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]

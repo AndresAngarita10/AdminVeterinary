@@ -51,20 +51,20 @@ public class MedicineMovementController : ApiBaseController
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<IEnumerable<object>>> MovMedicamentoYTotal()
     {
-        var Pet = await unitofwork.MedicineMovements.MovMedicamentoYTotal();
-        return mapper.Map<List<object>>(Pet);
+        var MedicineMovement = await unitofwork.MedicineMovements.MovMedicamentoYTotal();
+        return mapper.Map<List<object>>(MedicineMovement);
     }
-    /* [HttpGet("Consulta2b")]
+    [HttpGet("Consulta2b")]
     [MapToApiVersion("1.1")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<ActionResult<IEnumerable<Object>>> EspecieYMascota([FromQuery] Params Parameters)
+    public async Task<ActionResult<IEnumerable<Object>>> MovMedicamentoYTotal([FromQuery] Params Parameters)
     {
-        var Pet = await unitofwork.Pets.EspecieYMascota(Parameters.PageIndex, Parameters.PageSize, Parameters.Search);
-        var listEntidad = mapper.Map<List<Object>>(Pet.registros);
-        return Ok(new Pager<Object>(listEntidad, Pet.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
+        var MedicineMovement = await unitofwork.MedicineMovements.MovMedicamentoYTotal(Parameters.PageIndex, Parameters.PageSize, Parameters.Search);
+        var listEntidad = mapper.Map<List<Object>>(MedicineMovement.registros);
+        return Ok(new Pager<Object>(listEntidad, MedicineMovement.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
 
-    } */
+    }
 
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]

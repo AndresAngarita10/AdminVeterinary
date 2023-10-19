@@ -375,6 +375,36 @@ public class ApiContextSeed
                     }
                 }
             }
+            if (!context.MedicinePartners.Any())
+            {
+                /* Console.WriteLine("ruta:"+ruta); */
+                using (var readerMedicinePartner = new StreamReader("../Persistence/Data/Csvs/MedicinePartner.csv"))
+                {
+                    /* using (var csv = new CsvReader(readerMedicinePartner, CultureInfo.InvariantCulture)) */
+                    using (var csv = new CsvReader(readerMedicinePartner, new CsvConfiguration(CultureInfo.InvariantCulture)
+                    {
+                        HeaderValidated = null, // Esto deshabilita la validación de encabezados
+                        MissingFieldFound = null
+                    }))
+                    {
+                        var list = csv.GetRecords<MedicinePartner>();
+
+                        List<MedicinePartner> entidad = new List<MedicinePartner>();
+                        foreach (var item in list)
+                        {
+                            entidad.Add(new MedicinePartner
+                            {
+                                Id = item.Id,
+                                MedicineIdFk = item.MedicineIdFk,
+                                PartnerIdFk = item.PartnerIdFk,
+                            });
+                        }
+
+                        context.MedicinePartners.AddRange(entidad);
+                        await context.SaveChangesAsync();
+                    }
+                }
+            }
 
         }
         catch (Exception ex)
