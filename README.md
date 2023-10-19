@@ -260,6 +260,5 @@ AutoMapper para el mapeo entre entidades y DTOs.
 
 A todas las librerías y herramientas utilizadas en este proyecto.
 
-A ti, por considerar el uso de este sistema.
+Estamos encantados de que hayas decidido utilizar este sistema.
 
-por 
