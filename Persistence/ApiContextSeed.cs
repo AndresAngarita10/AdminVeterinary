@@ -405,6 +405,69 @@ public class ApiContextSeed
                     }
                 }
             }
+            if (!context.Users.Any())
+            {
+                /* Console.WriteLine("ruta:"+ruta); */
+                using (var readerUser = new StreamReader("../Persistence/Data/Csvs/User.csv"))
+                {
+
+                    using (var csv = new CsvReader(readerUser, new CsvConfiguration(CultureInfo.InvariantCulture)
+                    {
+                        HeaderValidated = null, // Esto deshabilita la validación de encabezados
+                        MissingFieldFound = null
+                    }))
+                    {
+                        var list = csv.GetRecords<User>();
+
+                        List<User> entidad = new List<User>();
+                        foreach (var item in list)
+                        {
+                            entidad.Add(new User
+                            {
+                                Id = item.Id,
+                                Name = item.Name,
+                                Email = item.Email,
+                                Password = item.Password,
+                                Address = item.Address,
+                                UserName = item.UserName,
+                                GenderIdfk = item.GenderIdfk,
+                            });
+                        }
+
+                        context.Users.AddRange(entidad);
+                        await context.SaveChangesAsync();
+                    }
+                }
+            }
+            if (!context.UsersRoles.Any())
+            {
+                /* Console.WriteLine("ruta:"+ruta); */
+                using (var readerUserRole = new StreamReader("../Persistence/Data/Csvs/UserRole.csv"))
+                {
+
+                    using (var csv = new CsvReader(readerUserRole, new CsvConfiguration(CultureInfo.InvariantCulture)
+                    {
+                        HeaderValidated = null, // Esto deshabilita la validación de encabezados
+                        MissingFieldFound = null
+                    }))
+                    {
+                        var list = csv.GetRecords<UserRole>();
+
+                        List<UserRole> entidad = new List<UserRole>();
+                        foreach (var item in list)
+                        {
+                            entidad.Add(new UserRole
+                            {
+                                UserIdFk = item.UserIdFk,
+                                RolIdFk = item.RolIdFk
+                            });
+                        }
+
+                        context.UsersRoles.AddRange(entidad);
+                        await context.SaveChangesAsync();
+                    }
+                }
+            }
 
         }
         catch (Exception ex)

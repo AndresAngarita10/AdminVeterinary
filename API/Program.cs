@@ -1,5 +1,7 @@
 using System.Reflection;
 using API.Extensions;
+using API.Helpers;
+using AspNetCoreRateLimit;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
 
@@ -12,6 +14,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+//inyeccion de demas dependencias --------------------------------
+
+builder.Services.AddAplicacionServices();
+builder.Services.ConfigureRateLimiting();
+builder.Services.ConfigureApiVersioning();
+builder.Services.ConfigureCors();
+builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
+builder.Services.AddAplicacionServices();
+builder.Services.AddJwt(builder.Configuration);
+
+
+//fin -------------------------------------
+//------------------------------
 // Inyectando el ApiContext
 builder.Services.AddDbContext<ApiContext>(options =>
 {
@@ -21,24 +36,20 @@ builder.Services.AddDbContext<ApiContext>(options =>
 });
 //Fin Inyeccion del ApiContext
 //-----------------------------------------------------------------------------
-//inyeccion de demas dependencias --------------------------------
 
-builder.Services.ConfigureCors();
-builder.Services.AddAplicacionServices();
-builder.Services.AddJwt(builder.Configuration);
-builder.Services.AddAutoMapper(Assembly.GetEntryAssembly());
-builder.Services.ConfigureRateLimiting();
-builder.Services.ConfigureApiVersioning();
-
-
-//fin -------------------------------------
-//------------------------------
 
 var app = builder.Build();
 
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 //-----------------------------------------------------------------------------
 //inyeccion de demas dependencias --------------------------------
 
+app.UseMiddleware<ExceptionMiddleware>();
 
 using (var scope = app.Services.CreateScope())
 {
@@ -59,16 +70,15 @@ using (var scope = app.Services.CreateScope())
 //fin -------------------------------------
 //------------------------------
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
 
 app.UseCors("CorsPolicy"); //configurando politica
 app.UseHttpsRedirection();
+// insertando dependencias ----------------------------------------------
+//----------------------------------------------------------------
+app.UseIpRateLimiting();
 
+app.UseAuthentication();
+//fin inyeccion de dependencias --------------
 app.UseAuthorization();
 
 app.MapControllers();

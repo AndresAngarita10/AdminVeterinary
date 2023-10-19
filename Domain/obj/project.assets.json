@@ -5045,19 +5045,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\APT01-042\\.nuget\\packages\\": {}
+    "C:\\Users\\andre\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\andre\\OneDrive\\Escritorio\\AdminVeterinary\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\Domain\\Domain.csproj",
-      "packagesPath": "C:\\Users\\APT01-042\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\Domain\\obj\\",
+      "projectPath": "C:\\Users\\andre\\OneDrive\\Escritorio\\AdminVeterinary\\Domain\\Domain.csproj",
+      "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\andre\\OneDrive\\Escritorio\\AdminVeterinary\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\APT01-042\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
@@ -5110,7 +5110,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }
