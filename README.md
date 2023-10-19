@@ -126,8 +126,8 @@ Para realizar la paginación se va al apartado de "Query" y se ingresa lo siguie
 
     **Endpoint**: `http://localhost:5021/api/Partner/consulta1a`
     
-    **Método**: `GET`<br>
---------  Version 1.0  -----------------------------  version 1.1 con paginacion<br>
+    **Método**: `GET` 
+<br>--------  Version 1.0  -----------------------------  version 1.1 con paginacion<br>
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/58af3abe-b12a-4756-b824-aa03bd96c0d3)
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/1e8204b1-6908-4fe4-b223-ed7e62569d14)
 
@@ -139,7 +139,7 @@ Para realizar la paginación se va al apartado de "Query" y se ingresa lo siguie
 
 **Endpoint**: `http://localhost:5021/api/Medicine/consulta2a`
 
-**Método**: `GET`<br>
+**Método**: `GET` <br>
 --------  Version 1.0  -----------------------------  version 1.1 con paginacion<br>
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/5dc34578-5f9d-44e6-8189-853349a6039a)
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/b17eaf6c-2930-4550-b5c4-a79c11790d26)
@@ -151,7 +151,7 @@ Para realizar la paginación se va al apartado de "Query" y se ingresa lo siguie
 
 **Endpoint**: `http://localhost:5021/api/Pet/consulta3a`
 
-**Método**: `GET`<br>
+**Método**: `GET` <br>
 --------  Version 1.0  -----------------------------  version 1.1 con paginacion<br>
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/53ae08cc-ac11-42f0-aeda-d2eeea32c903)
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/35c22e83-a0d8-4011-8cc1-715cc1782022)
