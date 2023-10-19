@@ -138,6 +138,35 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
     {
     	"Name":"No Definido"
     }
+  ###Tabla Laboratory :
+
+    **Endpoint**: `http://localhost:5021/api/Laboratory`
+    {
+    	"Name":"Genfares",
+    	"Address":"calle aa con bbb",
+    	"Phone":"123456"
+    }
+  ###Tabla Medicine :
+
+    **Endpoint**: `http://localhost:5021/api/Medicine`
+    {
+    	"Name":"Terramicina",
+    	"QuantityAvalible":50,
+    	"Price":10.99,
+    	"LaboratoryIdFk":1
+    }
+  ###Tabla TypeMovement :
+
+    **Endpoint**: `http://localhost:5021/api/typemovement`
+    {
+    	"Name":"Fianza"
+    }
+  ###Tabla TypeMovement :
+
+    **Endpoint**: `http://localhost:5021/api/typemovement`
+    {
+    	"Name":"Fianza"
+    }
   ###Tabla TypeMovement :
 
     **Endpoint**: `http://localhost:5021/api/typemovement`
