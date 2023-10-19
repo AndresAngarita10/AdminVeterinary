@@ -124,9 +124,9 @@ Para realizar la paginación se va al apartado de "Query" y se ingresa lo siguie
 
 ## 1. Visualizar los veterinarios cuya especialidad sea Cirujano vascular:
 
-    **Endpoint**: `http://localhost:5021/api/Partner/consulta1a`
-    
-    **Método**: `GET` 
+  **Endpoint**: `http://localhost:5021/api/Partner/consulta1a`
+  
+  **Método**: `GET` 
 <br>--------  Version 1.0  -----------------------------  version 1.1 con paginacion<br>
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/58af3abe-b12a-4756-b824-aa03bd96c0d3)
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/1e8204b1-6908-4fe4-b223-ed7e62569d14)
