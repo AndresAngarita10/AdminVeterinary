@@ -126,7 +126,7 @@ Para realizar la paginación se va al apartado de "Query" y se ingresa lo siguie
 
     **Endpoint**: `http://localhost:5021/api/Partner/consulta1a`
     
-    **Método**: `GET`
+    **Método**: `GET`<br>
 --------  Version 1.0  -----------------------------  version 1.1 con paginacion<br>
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/58af3abe-b12a-4756-b824-aa03bd96c0d3)
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/1e8204b1-6908-4fe4-b223-ed7e62569d14)
@@ -139,7 +139,7 @@ Para realizar la paginación se va al apartado de "Query" y se ingresa lo siguie
 
 **Endpoint**: `http://localhost:5021/api/Medicine/consulta2a`
 
-**Método**: `GET`
+**Método**: `GET`<br>
 --------  Version 1.0  -----------------------------  version 1.1 con paginacion<br>
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/5dc34578-5f9d-44e6-8189-853349a6039a)
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/b17eaf6c-2930-4550-b5c4-a79c11790d26)
@@ -151,7 +151,7 @@ Para realizar la paginación se va al apartado de "Query" y se ingresa lo siguie
 
 **Endpoint**: `http://localhost:5021/api/Pet/consulta3a`
 
-**Método**: `GET`
+**Método**: `GET`<br>
 --------  Version 1.0  -----------------------------  version 1.1 con paginacion<br>
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/53ae08cc-ac11-42f0-aeda-d2eeea32c903)
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/35c22e83-a0d8-4011-8cc1-715cc1782022)
@@ -161,7 +161,7 @@ Para realizar la paginación se va al apartado de "Query" y se ingresa lo siguie
 
 **Endpoint**: `http://localhost:5021/api/Partner/consulta4a`
 
-**Método**: `GET`
+**Método**: `GET`<br>
 --------  Version 1.0  -----------------------------  version 1.1 con paginacion<br>
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/cdee3ef6-6a88-4dcb-ab87-59d18cccc7aa)
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/0a04d082-d60c-42ab-b7ab-45c8b801d985)
@@ -171,7 +171,7 @@ Para realizar la paginación se va al apartado de "Query" y se ingresa lo siguie
 
 **Endpoint**: `http://localhost:5021/api/Medicine/consulta5a`
 
-**Método**: `GET`
+**Método**: `GET`<br>
 --------  Version 1.0  -----------------------------  version 1.1 con paginacion<br>
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/d250d5a6-f994-4a3e-93ca-b576ee2c40d8)
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/5e6d3aeb-d542-48ab-9843-ae5d39a19768)
@@ -181,7 +181,7 @@ Para realizar la paginación se va al apartado de "Query" y se ingresa lo siguie
 
 **Endpoint**: `http://localhost:5021/api/Pet/consulta6a`
 
-**Método**: `GET`
+**Método**: `GET`<br>
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/b55ccb55-c67c-4725-bf47-9f34152dcad5)
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/b15747ce-2226-4008-8e3d-e8614656a53b)
 
@@ -190,7 +190,7 @@ Para realizar la paginación se va al apartado de "Query" y se ingresa lo siguie
 
 **Endpoint**: `http://localhost:5021/api/Pet/consulta1b`
 
-**Método**: `GET`
+**Método**: `GET`<br>
 --------  Version 1.0  -----------------------------  version 1.1 con paginacion<br>
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/d78758d7-e67b-4bd9-afd2-a7d2c2f8275c)
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/6eb4298e-6e74-428c-88ba-54219897205a)
@@ -201,7 +201,7 @@ Para realizar la paginación se va al apartado de "Query" y se ingresa lo siguie
 
 **Endpoint**: `http://localhost:5021/api/MedicineMovement/consulta2b`
 
-**Método**: `GET`
+**Método**: `GET`<br>
 --------  Version 1.0  -----------------------------  version 1.1 con paginacion<br>
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/754fd469-49c3-42cc-a540-06fbfed231df)
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/598b5d47-d137-49f8-a47f-93cfc8bbea44)
@@ -212,7 +212,7 @@ En esta consulta se busca por el nombre del veterinario, en el ejemplo se especi
 
 **Endpoint**: `http://localhost:5021/api/Partner/consulta3b/veterinario 2`
 
-**Método**: `GET`
+**Método**: `GET`<br>
 --------  Version 1.0  -----------------------------  version 1.1 con paginacion<br>
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/80c42b77-641f-4f1b-9931-42e132a319e9)
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/32b087fd-18d4-440e-9358-9ed9ce312880)
@@ -222,7 +222,7 @@ En esta consulta se busca por el nombre del veterinario, en el ejemplo se especi
 En esta consulta se busca por el nombre de la medicina la cual se da una en el ejemplo llanmada medicina 5
 **Endpoint**: `http://localhost:5021/api/Partner/consulta4b/medicina 5`
 
-**Método**: `GET`
+**Método**: `GET`<br>
 --------  Version 1.0  -----------------------------  version 1.1 con paginacion<br>
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/c5e41b4b-6ced-4dea-9aed-6536ccb76cef)
 ![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/0858603d-de2d-417c-9bc3-94dc9f0ce65a)
@@ -230,17 +230,24 @@ En esta consulta se busca por el nombre de la medicina la cual se da una en el e
 
 ## 11. Listar las mascotas y sus propietarios cuya raza sea Golden Retriver:
 
-**Endpoint**: `http://localhost:5021/api/veterinaria/propietario/consulta5B`
+**Endpoint**: `http://localhost:5021/api/Pet/Consulta5b`
 
-**Método**: `GET`
+**Método**: `GET`<br>
 --------  Version 1.0  -----------------------------  version 1.1 con paginacion<br>
+![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/c10a3fc5-6c71-4de3-aff3-7bf8493fc564)
+![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/f2b50b2d-c085-4881-bfe7-d1ec0a5ee59f)
+
+
 
 ## 12. Listar la cantidad de mascotas que pertenecen a una raza:
 
 **Endpoint**: `http://localhost:5021/api/veterinaria/mascota/consulta6B`
 
-**Método**: `GET`
+**Método**: `GET`<br>
 --------  Version 1.0  -----------------------------  version 1.1 con paginacion<br>
+![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/320fa722-60b1-4505-a6a9-5c8f8c80a994)
+![image](https://github.com/AndresAngarita10/AdminVeterinary/assets/106509898/b366422a-6684-4f91-be23-57d35cf53663)
+
 
 ## Desarrollo ⌨️
 Este proyecto utiliza varias tecnologías y patrones, incluidos:
