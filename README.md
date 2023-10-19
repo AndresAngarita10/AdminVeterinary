@@ -217,23 +217,23 @@ Se dejan los mismos datos en el Body y luego se ingresa al "Auth", "Bearer", all
     {
     	"Name":"No definido"
     }
-  ###Tabla TypeMovement :
+  ###Tabla MedicineMovement :
 
     **Endpoint**: `http://localhost:5021/api/typemovement`
     {
-    	"Name":"Fianza"
+    	"Quantity":2,
+    	"DateMovement":"2022-01-15",
+    	"TypeMovementFk":1,
+    	"PartnerIdFk":1
     }
-  ###Tabla TypeMovement :
+  ###Tabla DetailMovement :
 
-    **Endpoint**: `http://localhost:5021/api/typemovement`
+    **Endpoint**: `http://localhost:5021/api/DetailMovement`
     {
-    	"Name":"Fianza"
-    }
-  ###Tabla TypeMovement :
-
-    **Endpoint**: `http://localhost:5021/api/typemovement`
-    {
-    	"Name":"Fianza"
+    	"Quantity":2,
+    	"Price":2.99,
+    	"MedicineIdFk":1,
+    	"MedicineMovementIdFk":1
     }
 
 ## Desarrollo de los Endpoints requeridos⌨️
