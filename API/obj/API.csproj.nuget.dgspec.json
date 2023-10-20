@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\API\\API.csproj": {}
+    "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\Api\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\API\\API.csproj": {
+    "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\Api\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\API\\API.csproj",
+        "projectUniqueName": "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\Api\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\API\\API.csproj",
+        "projectPath": "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\Api\\API.csproj",
         "packagesPath": "C:\\Users\\APT01-042\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\API\\obj\\",
+        "outputPath": "C:\\Users\\APT01-042\\Desktop\\AdminVeterinary\\Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\APT01-042\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -79,6 +79,10 @@
             "Microsoft.IdentityModel.Tokens": {
               "target": "Package",
               "version": "[7.0.3, )"
+            },
+            "Serilog.AspNetCore": {
+              "target": "Package",
+              "version": "[7.0.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

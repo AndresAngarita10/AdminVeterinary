@@ -4,9 +4,16 @@ using API.Helpers;
 using AspNetCoreRateLimit;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+var logger = new LoggerConfiguration()
+					.ReadFrom.Configuration(builder.Configuration)
+					.Enrich.FromLogContext()
+					.CreateLogger();
+builder.Logging.AddSerilog(logger);
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -30,8 +37,8 @@ builder.Services.AddJwt(builder.Configuration);
 // Inyectando el ApiContext
 builder.Services.AddDbContext<ApiContext>(options =>
 {
-    string connectionString = builder.Configuration.GetConnectionString("ConexMysql");
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+	string connectionString = builder.Configuration.GetConnectionString("ConexMysql");
+	options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 
 });
 //Fin Inyeccion del ApiContext
@@ -43,8 +50,8 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+	app.UseSwagger();
+	app.UseSwaggerUI();
 }
 //-----------------------------------------------------------------------------
 //inyeccion de demas dependencias --------------------------------
@@ -59,7 +66,7 @@ using (var scope = app.Services.CreateScope())
 	{
 		var context = services.GetRequiredService<ApiContext>();
 		await context.Database.MigrateAsync();
-		await ApiContextSeed.SeedAsync(context,loggerFactory);
+		await ApiContextSeed.SeedAsync(context, loggerFactory);
 	}
 	catch (Exception ex)
 	{
