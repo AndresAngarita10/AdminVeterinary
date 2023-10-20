@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace API.Controllers;
 [ApiVersion("1.0")]
 [ApiVersion("1.1")]
-[Authorize]
+/* [Authorize] */
 
 public class DetailMovementController: ApiBaseController
 {
@@ -44,6 +44,17 @@ public class DetailMovementController: ApiBaseController
         var listEntidad = mapper.Map<List<DetailMovementDto>>(DetailMovement.registros);
         return Ok(new Pager<DetailMovementDto>(listEntidad, DetailMovement.totalRegistros, Parameters.PageIndex, Parameters.PageSize, Parameters.Search));
 
+    }
+
+    
+    [HttpGet("SumaCadaMovimiento")]
+    [MapToApiVersion("1.0")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<IEnumerable<object>>> SumTotalCadaMov()
+    {
+        var DetailMovement = await unitofwork.DetailMovements.SumTotalCadaMov();
+        return mapper.Map<List<object>>(DetailMovement);
     }
 
     [HttpGet("{id}")]
